@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-CATEGORIES = %w["category 1" "category 2" "category 3" "category 4" "category 5"]
+CATEGORIES = ["category 1", "category 2", "category 3", "category 4", "category 5"]
 
 5.times do |index|
   User.create(name: "User #{index + 1}")
