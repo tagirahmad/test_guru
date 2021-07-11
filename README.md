@@ -7,3 +7,7 @@ Real-word Entities:
 - User
 
 - Admin
+
+- Question
+
+- Answer
