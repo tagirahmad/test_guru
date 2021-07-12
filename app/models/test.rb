@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Test < ApplicationRecord
   belongs_to :category
   belongs_to :author, class_name: 'User', foreign_key: :author_id
@@ -12,5 +14,7 @@ class Test < ApplicationRecord
   scope :medium, -> { where(level: 2..4) }
   scope :difficult, -> { where(level: 5..Float::INFINITY) }
 
-  scope :sorted_title_for_category, -> { joins(:category).where(categories: {title: category_title}).order(title: :desc).pluck(:title) }
+  scope :sorted_title_for_category, lambda {
+                                      joins(:category).where(categories: { title: category_title }).order(title: :desc).pluck(:title)
+                                    }
 end
