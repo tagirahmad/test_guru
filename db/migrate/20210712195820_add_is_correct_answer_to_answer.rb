@@ -2,6 +2,6 @@
 
 class AddIsCorrectAnswerToAnswer < ActiveRecord::Migration[6.1]
   def change
-    add_column :answers, :is_correct_answer, :boolean, null: false
+    add_column :answers, :correct, :boolean, null: false
   end
 end

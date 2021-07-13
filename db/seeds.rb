@@ -10,12 +10,9 @@ CATEGORIES = ['category 1', 'category 2', 'category 3', 'category 4', 'category 
   test = Test.create(title: "Test #{index + 1}", level: index, category_id: category.id, author_id: user.id)
   test.users << user
 
-  question = Question.new(body: "Question body #{index + 1}", test_id: test.id)
+  question = Question.create!(body: "Question body #{index + 1}", test_id: test.id)
 
   4.times do |i|
-    question.answers.build(body: "Answer body #{i + 1}", question_id: question.id,
-                           is_correct_answer: i == 1)
+    question.answers << Answer.create!(body: "Answer body #{i + 1}", question_id: question.id, correct: i == 1)
   end
-
-  question.save
 end

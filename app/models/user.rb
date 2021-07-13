@@ -7,5 +7,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
-  scope :tests_by_level, ->(level) { Test.joins(:users).where(level: level, users: { id: id }) }
+  def tests_by_level(level)
+    Test.joins(:users).where(level: level, users: { id: id })
+  end
 end
