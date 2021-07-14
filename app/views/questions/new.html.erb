@@ -1,0 +1,6 @@
+<%= form_with model: @question, url: test_questions_path do |form| %>
+  <%= form.label :body, "Question body" %>
+  <%= form.text_area :body, size: "60x10" %>
+  
+  <%= form.submit %>
+<% end %>
