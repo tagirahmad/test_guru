@@ -1,4 +1,8 @@
 class TestsController < ApplicationController
+  before_action :find_test, only: :show
+
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+
   def index
     @tests = Test.all
 
@@ -6,8 +10,6 @@ class TestsController < ApplicationController
   end
 
   def show
-    @test = Test.find(params[:id])
-
     render json: @test
   end
 
@@ -36,6 +38,6 @@ class TestsController < ApplicationController
   end
 
   def rescue_with_test_not_found
-    render plain: "Can't found this test"
+    render plain: "Can't find this test"
   end
 end
