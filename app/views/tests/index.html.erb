@@ -1,0 +1,18 @@
+<style type="text/css">
+  .links {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
+
+<h2>List of all tests</h2>
+
+<%= link_to 'Create new test', new_test_path %>
+
+<br><br>
+
+<div class="links">
+  <% @tests.each do |t| %>
+    <%= link_to "#{t.title} - #{t.questions.count} questions", test_path(t) %>
+  <% end %>
+</div>

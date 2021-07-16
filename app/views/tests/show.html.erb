@@ -1,0 +1,11 @@
+<h2><%= @test.title%></h2>
+
+<h3>Questions</h3>
+
+<ul>
+  <% @test.questions.each do |q| %>
+    <li><%= q.body %></li>
+  <% end %>
+</ul>
+
+<%= go_back %>

@@ -1,0 +1,5 @@
+<% @questions.each do |q| %>
+  <%= link_to q.body, question_path(q) %>
+<% end %>
+
+<%= link_to 'Back', test_path(@test) %>

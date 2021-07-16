@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TestsController < ApplicationController
   before_action :find_test, only: :show
 
@@ -5,13 +7,9 @@ class TestsController < ApplicationController
 
   def index
     @tests = Test.all
-
-    render json: @tests
   end
 
-  def show
-    render json: @test
-  end
+  def show; end
 
   def new
     @test = Test.new
