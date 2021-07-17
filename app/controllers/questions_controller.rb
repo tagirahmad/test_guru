@@ -6,8 +6,6 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = @test.questions
-
-    # render json: @questions
   end
 
   def show; end

@@ -3,9 +3,8 @@
 <h3>Questions</h3>
 
 <ul>
-  <% @test.questions.each do |q| %>
-    <li><%= q.body %></li>
-  <% end %>
+  <%= render @test.questions %>
 </ul>
 
-<%= go_back %>
+
+<%= go_back_to_tests %>

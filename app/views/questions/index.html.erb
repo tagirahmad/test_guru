@@ -1,5 +1,3 @@
-<% @questions.each do |q| %>
-  <%= link_to q.body, question_path(q) %>
-<% end %>
+<%= render @questions %>
 
 <%= link_to 'Back', test_path(@test) %>

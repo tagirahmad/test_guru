@@ -1,10 +1,5 @@
 module QuestionsHelper
-  def question_header(test_title, type)
-    case type
-    when :create then "Create #{test_title} Question"
-    when :edit then "Edit #{test_title} Question"
-    else
-      "#{test_title} Question"
-    end
+  def question_header(question)
+    "#{question.new_record? ? 'Create' : 'Edit'} #{question.test.title} question"
   end
 end

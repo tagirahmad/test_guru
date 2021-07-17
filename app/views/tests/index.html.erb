@@ -12,7 +12,5 @@
 <br><br>
 
 <div class="links">
-  <% @tests.each do |t| %>
-    <%= link_to "#{t.title} - #{t.questions.count} questions", test_path(t) %>
-  <% end %>
+  <%= render @tests %>
 </div>
