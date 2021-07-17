@@ -1,14 +1,3 @@
-<%= form_with model: @test, url: tests_path do |form| %>
-  <%= form.label :title, "Title" %>
-  <%= form.text_field :title %>
-  <%= form.label :level, "Level" %>
-  <%= form.text_field :level %>
-  <%= form.label :category_id %>
-  <%= form.label :category_id, "Category ID" %>
-  <%= form.text_field :category_id %>
-  <%= form.label :author_id, "Author ID" %>
-  <%= form.text_field :author_id %>
-  
-  <%= form.submit %>
-<% end %>
+<%= render 'form' %>
 
+<%= go_back_to_tests %>

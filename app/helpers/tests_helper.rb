@@ -1,2 +1,5 @@
 module TestsHelper
+  def go_back_to_tests
+    link_to 'Back', tests_path
+  end
 end
