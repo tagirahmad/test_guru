@@ -39,7 +39,7 @@ class TestsController < ApplicationController
   end
 
   def set_user
-    @user = User.first # для простоты достаем первого юзера
+    @user = User.first # for simplicity retrieve first user
   end
 
   def test_params
