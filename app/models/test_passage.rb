@@ -28,7 +28,7 @@ class TestPassage < ApplicationRecord
   end
 
   def passed?
-    result_score == SUCCESS_SCORE || result_score >= SUCCESS_SCORE
+    result_score >= SUCCESS_SCORE
   end
 
   def test_questions_count
