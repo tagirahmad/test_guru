@@ -1,0 +1,10 @@
+<h1>The <%= @test_passage.test.title %> Test was completed!</h1>
+
+<p>
+  Your score: <span style="color: <%= @test_passage.passed? ? 'green' : 'red' %>">
+  <%= @test_passage.result_score %></span> of 100
+</p>
+
+<%= passage_congratulation %>
+
+<b><%= link_to 'To tests list', tests_path %></b>

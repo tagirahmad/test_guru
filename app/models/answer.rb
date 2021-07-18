@@ -10,6 +10,6 @@ class Answer < ApplicationRecord
   validate :check_answers_count, on: :create
 
   def check_answers_count
-    errors.add(:base, 'Answers count > 4') if question.answers.count > 4
+    errors.add(:base, 'Answers count > 4') if question.answers.count >= 4
   end
 end
