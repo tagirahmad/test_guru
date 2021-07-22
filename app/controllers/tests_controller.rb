@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_test, only: %i[show start]
   before_action :set_user, only: :start
 
@@ -40,7 +39,7 @@ class TestsController < ApplicationController
   end
 
   def set_user
-    @user = User.first # for simplicity retrieve first user
+    @user = User.find(session[:user_id])
   end
 
   def test_params
@@ -48,6 +47,7 @@ class TestsController < ApplicationController
   end
 
   def rescue_with_test_not_found
+    byebug
     render plain: "Can't find this test"
   end
 end
