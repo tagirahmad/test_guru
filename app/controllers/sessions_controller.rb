@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to cookies[:current_url] || root_path, notification: 'You are successfully logged in'
+      redirect_to cookies[:current_url] || root_path, flash: { notification: 'You are successfully logged in' }
     else
       render 'new'
     end
@@ -16,6 +16,6 @@ class SessionsController < ApplicationController
     session.delete(:user_id)
     @current_user = nil
     cookies[:current_url] = nil
-    redirect_to login_path, notification: 'You are signed out'
+    redirect_to login_path, flash: { notification: 'You are signed out' }
   end
 end

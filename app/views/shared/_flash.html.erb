@@ -1,4 +1,3 @@
-<% byebug %>
 <% flash.each do |name, msg| %>
   <% if msg.is_a?(String) %>
       <%= content_tag :p, msg.to_s, class: "flash #{name.to_s}" %>
