@@ -1,0 +1,7 @@
+<header class="nav admin">
+  <h3>TestGuru Admin Panel</h3>
+  <ul>
+    <li style="padding-right: 20px">Welcome, <b><%= current_user.email %></b> Guru</li>
+    <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+  </ul>
+</header>

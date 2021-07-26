@@ -4,7 +4,10 @@ CATEGORIES = ['category 1', 'category 2', 'category 3', 'category 4', 'category 
 EMAILS = %w[test@gmail.com test2@gmail.com test3@gmail.com test4@gmail.com test5@gmail.com].freeze
 
 5.times do |index|
-  user = User.create!(name: "User #{index + 1}", email: EMAILS[index], password: '1234')
+  user = User.create!(first_name: "User #{index + 1}",
+                      last_name: 'last name',
+                      email: EMAILS[index],
+                      password: 'qwerty')
 
   category = Category.create!(title: (CATEGORIES[index]).to_s)
 
