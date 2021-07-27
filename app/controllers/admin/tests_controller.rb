@@ -35,12 +35,6 @@ class Admin::TestsController < Admin::BaseController
     end
   end
 
-  def start
-    current_user.tests.push << @test
-
-    redirect_to current_user.test_passage(@test)
-  end
-
   def destroy
     @test.destroy
     redirect_to admin_tests_path
@@ -53,7 +47,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 
   def rescue_with_test_not_found
