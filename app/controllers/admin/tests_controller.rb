@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Admin
+class Admin
   class TestsController < Admin::BaseController
     before_action :set_test, only: %i[show start destroy edit update]
 
