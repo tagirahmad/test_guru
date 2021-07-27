@@ -5,7 +5,7 @@ class Test < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: :author_id
   has_many :test_passages
   has_many :users, through: :test_passages
-  has_many :questions
+  has_many :questions, dependent: :destroy
 
   validates :title, presence: true, uniqueness: { scope: [:level] }
   validates :level, presence: true, numericality: { greater_than_or_equal_to: 0, only_integer: true }, allow_nil: false
