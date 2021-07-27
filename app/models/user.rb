@@ -11,13 +11,15 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :last_name, presence: true
+  validates :first_name, presence: true
 
   def admin?
     is_a?(Admin)
   end
 
   def full_name
-    "#{current_user.first_name} #{current_user.last_name}}"
+    "#{first_name} #{last_name}"
   end
 
   def tests_by_level(level)
