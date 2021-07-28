@@ -23,6 +23,6 @@ class TestsController < ApplicationController
   end
 
   def rescue_with_test_not_found
-    render plain: "Can't find this test"
+    render plain: t('errors.cant_find_test')
   end
 end

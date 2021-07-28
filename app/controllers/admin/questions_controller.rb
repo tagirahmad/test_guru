@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Admin
+class Admin
   class QuestionsController < ApplicationController
     before_action :find_test, only: %i[index new create]
     before_action :find_question, only: %i[show destroy edit update]
@@ -39,7 +39,7 @@ module Admin
 
     def destroy
       @question.destroy
-      render plain: 'Question deleted'
+      render plain: t('.deleted')
     end
 
     private
@@ -57,7 +57,7 @@ module Admin
     end
 
     def rescue_with_question_not_found
-      render plain: "Can't find the question"
+      render plain: t('errors.cant_find_question')
     end
   end
 end

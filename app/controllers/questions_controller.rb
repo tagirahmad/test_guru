@@ -23,6 +23,6 @@ class QuestionsController < ApplicationController
   end
 
   def rescue_with_question_not_found
-    render plain: "Can't find the question"
+    render plain: t('errors.cant_find_question')
   end
 end

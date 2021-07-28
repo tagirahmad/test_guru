@@ -1,9 +1,9 @@
 <%= form_with model: [:admin, @question, @answer] do |form| %>
   <%= render 'shared/errors', resource: @answer %>
 
-  <%= form.label :body, "Answer body" %>
+  <%= form.label :body, t('.body') %>
   <%= form.text_area :body, size: "60x5" %>
-  <%= form.select :correct, [['Correct', true], ['Incorrect', false]] %>
+  <%= form.select :correct, [[t('.correct'), true], [t('.incorrect'), false]] %>
 
   <div class="actions">
     <%= form.submit %>
