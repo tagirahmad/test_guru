@@ -1,6 +1,6 @@
 <%= form_with model: [:admin, @test, @question], local: true do |form| %>
   <%= render 'shared/errors', resource: @question %>
-  <%= form.label :body, "Question body" %>
+  <%= form.label :body, t('.body') %>
   <%= form.text_area :body, size: "60x10" %>
   
   <%= form.submit %>

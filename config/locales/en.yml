@@ -1,33 +1,125 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  helpers:
+    submit:
+      test:
+        create: "Create Test"
+        update: "Update Test"
+      answer:
+        create: "Create Answer"
+        update: "Update Answer"
+      question:
+        create: "Create Question"
+        update: "Update Question"
+      test_passage:
+        next: "Next"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+    header:
+      title: "Test Guru"
+      welcome: "Welcome"
+      guru: "Guru"
+      signup: "Sign up"
+      login: "Log in"
+      logout: "Log out"
+    footer:
+      description: "This is a training project I am doing in an online school"
+      project: "Study project at Thinknetica online school "
+
+  errors:
+    cant_find_test: "Can't find this test"
+    cant_find_question: "Can't find the question"
+
+  tests:
+    index:
+      header: "List of all tests"
+    test:
+      start: "Start"
+
+  answers:
+    show:
+      question: "Question"
+      answer: "Answer"
+      correct: "Correct answer"
+      back: "Back"
+
+  test_passages:
+    result:
+      header: "Test %{title} was passed!"
+    show:
+      test: "Test"
+      question_no: "Question №"
+      of: "of"
+
+  admin:
+    header:
+      title: "TestGuru Admin Panel"
+      welcome: "Welcome"
+      guru: "Guru"
+      logout: "Log out"
+    tests:
+      create:
+        success: "Test was successfully created"
+      update:
+        edited: "Test edited!"
+      index:
+        header: "List of all tests"
+        create: "Create new test"
+      test:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+        confirm: "Are you sure?"
+      edit:
+        edit: "Edit"
+        back: "Back"
+      new:
+        create: "Create new test"
+        back: "Back"
+      show:
+        questions: "Questions"
+        add: "Add question"
+        back: "Back"
+    answers:
+      form:
+        body: "Answer text"
+        correct: "Correct"
+        incorrect: "Incorrect"
+      edit:
+        title: "Editing Answer"
+        back: "Back"
+      new:
+        title: "New Answer"
+        back: "Back"
+      show:
+        question: "Question"
+        answer: "Answer"
+        correct: "Correct answer"
+        back: "Back"
+    questions:
+      show:
+        answers: "Answers"
+        new_answer: "New answer"
+        back: "Back"
+      new:
+        create: "Create"
+        edit: "Edit"
+        question: "question"
+      destroy:
+        deleted: "Question deleted"
+      form:
+        body: "Question body"
+      question:
+        edit: "Edit"
+
+  tests_mailer:
+    completed_test:
+      subject: "You have completed TestGuru test!"

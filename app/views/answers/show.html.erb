@@ -1,14 +1,14 @@
-<h2>Question</h2>
+<h2><%= t('.question') %></h2>
 
 <p><%= @answer.question.body %></p>
 
 <p>
-  <b>Answer:</b>
+  <b><%= t('.answer') %>:</b>
   <%= @answer.body %>
 </p>
 
 <p>
-  <b>Correct:</b>
+  <b><%= t('.correct') %>:</b>
   <%= @answer.correct %>
 </p>
 

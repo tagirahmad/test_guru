@@ -1,15 +1,15 @@
 <h2><%= @test.title %></h2>
 
-<h3>Questions</h3>
+<h3><%= t('.questions') %></h3>
 
 <ul>
-  <%= render partial: 'questions/question', collection: @test.questions %>
+  <%= render partial: 'admin/questions/question', collection: @test.questions %>
 </ul>
 
 <br/>
 
-<%= link_to 'Add question', new_admin_test_question_path(@test)  %>
+<%= link_to t('.add'), new_admin_test_question_path(@test)  %>
 
 <br/>
 
-<%= link_to 'Back', admin_tests_path %>
+<%= link_to t('.back'), admin_tests_path %>

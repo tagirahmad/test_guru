@@ -20,7 +20,7 @@ class Admin
       @test = current_user.created_tests.new(test_params)
 
       if @test.save
-        redirect_to admin_tests_path
+        redirect_to admin_tests_path, flash: { notification: t('.success') }
       else
         render 'new'
       end
@@ -30,7 +30,7 @@ class Admin
 
     def update
       if @test.update(test_params)
-        redirect_to admin_tests_path, notification: 'Test edited!'
+        redirect_to admin_tests_path, flash: { notification: t('.edited') }
       else
         render :edit
       end
@@ -52,7 +52,7 @@ class Admin
     end
 
     def rescue_with_test_not_found
-      render plain: "Can't find this test"
+      render plain: t('errors.cant_find_test')
     end
   end
 end
