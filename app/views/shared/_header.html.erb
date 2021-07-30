@@ -1,14 +1,18 @@
-<header>
-  <h3><%= link_to t('.title'), root_path %></h3>
-  <% if user_signed_in? %>
-    <ul class="nav user">
-      <li style="padding-right: 20px"><%= t('.welcome') %>, <b><%= current_user.email %></b> <%= t('.guru') %></li>
-      <li><%= link_to t('.logout'), destroy_user_session_path, method: :delete %></li>
-    </ul>
-  <% else %>
-    <div>
-      <%= link_to t('.signup'), new_user_registration_path %>
-      <%= link_to t('.login'), new_user_session_path %>
-    </div>
-  <% end %>
+<header class="navbar navbar-light bg-light">
+  <div class="container">
+    <%= link_to t('.title'), root_path, class: 'navbar-brand' %>
+    <span class="navbar-text">
+    <% if user_signed_in? %>
+      <ul class="nav user">
+        <li style="padding-right: 20px"><%= t('.welcome') %>, <b><%= current_user.email %></b> <%= t('.guru') %></li>
+        <li><%= link_to t('.logout'), destroy_user_session_path, method: :delete %></li>
+      </ul>
+    <% else %>
+      <div>
+        <%= link_to t('.signup'), new_user_registration_path %>
+        <%= link_to t('.login'), new_user_session_path %>
+      </div>
+    <% end %>
+  </span>
+  </div>
 </header>

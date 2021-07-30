@@ -73,7 +73,6 @@ ru:
         email: "Эл.почта"
         first_name: "Имя"
         last_name: "Фамилия"
-        email: "Эл.почта"
         password: "Пароль"
         leave_blank: "Оставьте поле пустым, если вы не хотите его менять"
         minimum_characters:

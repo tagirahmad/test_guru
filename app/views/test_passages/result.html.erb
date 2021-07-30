@@ -1,6 +1,6 @@
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
-<p>
+<p class="mt-3">
   Your score: <span style="color: <%= @test_passage.passed? ? 'green' : 'red' %>">
   <%= @test_passage.result_score %></span> of 100
 </p>

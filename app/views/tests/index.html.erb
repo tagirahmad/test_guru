@@ -1,14 +1,13 @@
 <style type="text/css">
-  .links {
-    display: flex;
-    flex-direction: column;
-  }
+    .links {
+        display: flex;
+        flex-direction: column;
+    }
 </style>
 
-<h2><%= t('.header') %></h2>
-
-<br><br>
-
-<div class="links">
-  <%= render @tests %>
+<div class="container m-3">
+  <h2><%= t('.header') %></h2>
+  <div class="links mt-3">
+    <%= render @tests %>
+  </div>
 </div>

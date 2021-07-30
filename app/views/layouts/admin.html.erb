@@ -12,10 +12,13 @@
 
 <body>
 <%= render 'admin/header' %>
+<div class="container">
 
-<%= render 'shared/flash' %>
+  <div class="mt-3">
+    <%= render 'shared/flash' %>
+  </div>
 
-<%= yield %>
-
+  <%= yield %>
+</div>
 </body>
 </html>
