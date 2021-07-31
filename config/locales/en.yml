@@ -78,6 +78,8 @@ en:
         edit: "Edit"
         delete: "Delete"
         confirm: "Are you sure?"
+        level: "Level"
+        questions_count: "Questions count"
       edit:
         edit: "Edit"
         back: "Back"

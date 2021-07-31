@@ -1,7 +1,9 @@
 <header class="nav admin">
-  <h3><%= t('.title') %></h3>
-  <ul>
-    <li style="padding-right: 20px"><%= t('.welcome') %>, <b><%= current_user.email %></b> <%= t('.guru') %></li>
-    <li><%= link_to t('.logout'), destroy_user_session_path, method: :delete %></li>
-  </ul>
+  <div class="container d-flex justify-content-between mt-3">
+    <h3><%= link_to t('.title'), admin_tests_path %></h3>
+    <ul>
+      <li style="padding-right: 20px"><%= t('.welcome') %>, <b><%= current_user.email %></b> <%= t('.guru') %></li>
+      <li><%= link_to t('.logout'), destroy_user_session_path, method: :delete %></li>
+    </ul>
+  </div>
 </header>

@@ -53,8 +53,6 @@ ru:
       correct: "Правильный ответ"
       back: "Назад"
 
-
-
   test_passages:
     result:
       header: "Тест %{title} успешно пройден!"
@@ -82,6 +80,8 @@ ru:
         edit: "Изменить"
         delete: "Удалить"
         confirm: "Вы уверены?"
+        level: "Сложность"
+        questions_count: "Количество вопросов"
       edit:
         edit: "Изменить"
         back: "Назад"
