@@ -2,7 +2,7 @@
 
 class TestPassagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_test_passage, only: %i[show update result]
+  before_action :set_test_passage, only: %i[show update result gist]
 
   def show; end
 
@@ -17,6 +17,28 @@ class TestPassagesController < ApplicationController
     else
       render 'show'
     end
+  end
+
+  def gist
+    client = Octokit::Client.new(access_token: ENV['GITHUB_ACCESS_TOKEN'])
+    current_question = @test_passage.current_question
+
+    gist_question_service = GistQuestionService.new(current_question, client)
+    gist_question_service.call
+
+    if gist_question_service.success?
+      Gist.create!(url: gist_question_service.gist_link, user_id: current_user.id, question_id: current_question.id)
+    end
+
+    flash_options = if gist_question_service.success?
+                      { notice: "#{t('.success')} #{view_context.link_to('Gist link',
+                                                                         gist_question_service.gist_link,
+                                                                         target: '_blank')}" }
+                    else
+                      { alert: t('.failure') }
+                    end
+
+    redirect_to @test_passage, flash_options
   end
 
   private

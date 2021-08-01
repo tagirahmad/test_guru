@@ -1,0 +1,7 @@
+<div class="card mb-3 col-sm-12 col-md-8 col-lg-4">
+  <div class="card-body">
+    <h5><%= link_to truncate(gist.question.body, length: 25), admin_gist_path(gist), class: 'card-title' %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= gist.user.email %></h6>
+    <%= link_to gist.url.gsub('https://gist.github.com/', ""), gist.url, class: 'card-link', target: '_blank' %>
+  </div>
+</div>

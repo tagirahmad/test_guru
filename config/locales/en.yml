@@ -38,6 +38,10 @@ en:
     cant_find_test: "Can't find this test"
     cant_find_question: "Can't find the question"
 
+  services:
+    gist_question_service:
+      description: "A question is about %{test_title} from TestGuru"
+
   tests:
     index:
       header: "List of all tests"
@@ -54,6 +58,9 @@ en:
   test_passages:
     result:
       header: "Test %{title} was passed!"
+    gist:
+      success: "Gist was successfully saved!"
+      failure: "While saving gist error has occurred"
     show:
       test: "Test"
       question_no: "Question №"

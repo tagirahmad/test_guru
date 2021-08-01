@@ -22,6 +22,10 @@ ru:
     cant_find_test: "Не могу найти тест"
     cant_find_question: "Не могу найти вопрос"
 
+  services:
+    gist_question_service:
+      description: "Вопрос про %{test_title} от TestGuru"
+
   shared:
     errors:
       header:
@@ -56,6 +60,9 @@ ru:
   test_passages:
     result:
       header: "Тест %{title} успешно пройден!"
+    gist:
+      success: "Gist успешно сохранен!"
+      failure: "Во время сохранения gist произошла ошибка"
     show:
       test: "Тест"
       question_no: "Вопрос №"
