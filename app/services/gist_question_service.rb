@@ -1,19 +1,12 @@
 class GistQuestionService
-  def initialize(question, user, client = nil)
+  def initialize(question, client = nil)
     @question = question
-    @user = user
     @test = @question.test
     @client = client || GithubClient.new
   end
 
   def call
     @result = @client.create_gist(gist_params)
-
-    if success?
-      Gist.create!(url: gist_link, user_id: @user.id, question_id: @question.id)
-    end
-
-    @result
   end
 
   def gist_link

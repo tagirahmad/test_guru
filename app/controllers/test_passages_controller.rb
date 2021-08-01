@@ -21,12 +21,19 @@ class TestPassagesController < ApplicationController
 
   def gist
     client = Octokit::Client.new(access_token: ENV['GITHUB_ACCESS_TOKEN'])
-    gist_question_service = GistQuestionService.new(@test_passage.current_question, current_user, client)
-    result = gist_question_service.call
+    current_question = @test_passage.current_question
+
+    gist_question_service = GistQuestionService.new(current_question, client)
+    gist_question_service.call
+
+    if gist_question_service.success?
+      Gist.create!(url: gist_question_service.gist_link, user_id: current_user.id, question_id: current_question.id)
+    end
 
     flash_options = if gist_question_service.success?
                       { notice: "#{t('.success')} #{view_context.link_to('Gist link',
-                                                                         result[:html_url], target: '_blank')}" }
+                                                                         gist_question_service.gist_link,
+                                                                         target: '_blank')}" }
                     else
                       { alert: t('.failure') }
                     end
