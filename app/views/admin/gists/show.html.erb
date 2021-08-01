@@ -1,0 +1,6 @@
+<div class="container m-3">
+  <p><%= @gist.question.body %></p>
+  <p><%= link_to @gist.url, @gist.url, target: '_blank' %></p>
+
+  <%= link_to t('.back'), admin_gists_path %>
+</div>
