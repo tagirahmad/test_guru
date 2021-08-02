@@ -11,6 +11,12 @@
   <%= link_to t('.create'), new_admin_test_path %>
 
   <div class="links mt-3">
-    <%= render @tests %>
+    <div class="sort-by-title pointer mb-3">
+      <%= octicon 'arrow-up', class: 'text-success' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </div>
+    <div class="tests-list">
+      <%= render @tests %>
+    </div>
   </div>
 </div>

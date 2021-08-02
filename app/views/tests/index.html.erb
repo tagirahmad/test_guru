@@ -7,7 +7,11 @@
 
 <div class="container m-3">
   <h2><%= t('.header') %></h2>
-  <div class="links mt-3">
+  <div class="sort-by-title pointer mb-3">
+    <%= octicon 'arrow-up', class: 'text-success' %>
+    <%= octicon 'arrow-down', class: 'text-success hide' %>
+  </div>
+  <div class="links tests-list mt-3">
     <%= render @tests %>
   </div>
 </div>
