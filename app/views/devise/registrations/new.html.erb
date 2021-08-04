@@ -37,6 +37,7 @@
               <%= f.label :password_confirmation %><br/>
               <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control mt-1' %>
             </p>
+            <p class="result-comparison hide"><%= t('devise.registrations.passwords_missmatch') %></p>
           </div>
 
           <div class="actions mt-3">

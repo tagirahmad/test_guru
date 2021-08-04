@@ -1,4 +1,6 @@
-<div class="card-body">
-  <h5 class="card-title"><%= test.title %></h5>
-  <%= button_to t('.start'), start_test_path(test), class: 'btn btn-primary mt-3' %>
+<div class="card mb-3 col-sm-12 col-md-8 col-lg-4">
+  <div class="card-body">
+    <h5 class="card-title"><%= test.title %></h5>
+    <%= button_to t('.start'), start_test_path(test), class: 'btn btn-primary mt-3' %>
+  </div>
 </div>
