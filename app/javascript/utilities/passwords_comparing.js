@@ -13,6 +13,7 @@ function checkPasswords() {
 
     if (password.value === 0 || password_confirmation.value === 0) {
         resultField.classList.remove('hide')
+        return
     }
 
     if (password.value === password_confirmation.value) {
