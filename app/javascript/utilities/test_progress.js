@@ -2,9 +2,9 @@ document.addEventListener('turbolinks:load', function () {
     let progress = document.querySelector('.progress-bar');
 
     if (progress) {
-        let questionNumber = progress.dataset.questionPosition;
+        let questionPosition = progress.dataset.questionPosition;
         let questionsCount = progress.dataset.questionsCount;
-
-        progress.style.width = Math.floor(questionNumber / questionsCount * 100) + '%'
+        console.log(questionPosition, 'position')
+        progress.style.width = questionPosition === '1' ? '0 %' : (Math.floor(questionPosition / questionsCount * 100) + '%')
     }
 })
