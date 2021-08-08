@@ -80,6 +80,8 @@ en:
       index:
         header: "List of all tests"
         create: "Create new test"
+      form_inline:
+        submit: "OK"
       test:
         show: "Show"
         edit: "Edit"

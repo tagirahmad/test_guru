@@ -10,6 +10,8 @@
 
   <%= link_to t('.create'), new_admin_test_path %>
 
+  <%= render 'shared/errors', resource: @test %>
+
   <div class="links mt-3">
     <div class="sort-by-title pointer mb-3">
       <%= octicon 'arrow-up', class: 'text-success' %>

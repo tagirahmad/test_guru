@@ -82,6 +82,8 @@ ru:
       index:
         header: "Список всех тестов"
         create: "Создать новый тест"
+      form_inline:
+        submit: "ОК"
       test:
         show: "Посмотреть"
         edit: "Изменить"

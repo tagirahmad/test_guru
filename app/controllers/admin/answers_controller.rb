@@ -21,7 +21,7 @@ class Admin
       @answer = @question.answers.new(answer_params)
 
       if @answer.save
-        redirect_to @answer
+        redirect_to admin_question_path(@question)
       else
         render 'new'
       end

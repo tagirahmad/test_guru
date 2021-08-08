@@ -6,6 +6,15 @@
 
     <p><%= t('.question_no') %> <%= @test_passage.question_position %> <%= t('.of') %> <%= @test_passage.test_questions_count %></p>
 
+    <div class="progress mb-3">
+      <%= content_tag :div, '',
+                      class: 'progress-bar',
+                      id: 'test-progress',
+                      data: { question_position: @test_passage.question_position,
+                              questions_count: @test_passage.test_questions_count },
+                      role: "progressbar" %>
+    </div>
+
     <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
       <%= form.collection_check_boxes :answer_ids,
                                       @test_passage.current_question.answers,
