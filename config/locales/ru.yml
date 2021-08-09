@@ -133,6 +133,16 @@ ru:
       question:
         edit: "Изменить"
 
+  feedbacks:
+    feedback: "Отзыв"
+    index:
+      header: "Отправьте нам сообщение"
+      label: "Тест сообщения"
+      submit: "Отправить"
+    create:
+      success: "Сообщение успешно отправлено"
+      failure: "Поле не должно быть пустым"
+
   tests_mailer:
     completed_test:
       subject: "Вы только что выполнили тест на TestGuru!"

@@ -3,6 +3,12 @@
 CATEGORIES = ['category 1', 'category 2', 'category 3', 'category 4', 'category 5'].freeze
 EMAILS = %w[test@gmail.com test2@gmail.com test3@gmail.com test4@gmail.com test5@gmail.com].freeze
 
+User.create!(first_name: 'Admin',
+             last_name: 'Admin',
+             email: ENV['SENDER_EMAIL'],
+             password: 'qwerty',
+             type: 'Admin')
+
 5.times do |index|
   user = User.create!(first_name: "User #{index + 1}",
                       last_name: 'last name',

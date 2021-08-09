@@ -1,4 +1,4 @@
-<footer>
+<footer class="mb-3">
   <p><%= current_year %></p>
   <p>Tagir Ahmadeev</p>
   <%= github_link 'tagirahmad', 'test_guru' %>
@@ -6,4 +6,11 @@
     <%= t('.description') %>
   </p>
   <a href="http://thinknetica.com/"><%= t('.project') %></a>
+  <div class="">
+    <%= link_to feedbacks_path do %>
+      <%= content_tag :div do %>
+        <%= octicon 'mail' %> <%= t('feedbacks.feedback') %>
+      <% end %>
+    <% end %>
+  </div>
 </footer>

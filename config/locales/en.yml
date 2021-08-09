@@ -131,6 +131,16 @@ en:
       question:
         edit: "Edit"
 
+  feedbacks:
+    feedback: "Feedback"
+    index:
+      header: "Send us your feedback"
+      label: "Text"
+      submit: "Send"
+    create:
+      success: "Message successfully sent"
+      failure: "Field can't be blank"
+
   tests_mailer:
     completed_test:
       subject: "You have completed TestGuru test!"
