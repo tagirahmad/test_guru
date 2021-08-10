@@ -65,6 +65,9 @@ en:
       test: "Test"
       question_no: "Question №"
       of: "of"
+      no_questions: "Test doesn't have any questions yet"
+    update:
+      please_answer: "You have to choose at least one answer"
 
   admin:
     header:

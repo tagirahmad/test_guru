@@ -67,6 +67,9 @@ ru:
       test: "Тест"
       question_no: "Вопрос №"
       of: "из"
+      no_questions: "У теста пока нет вопросов"
+    update:
+      please_answer: "Выберите хотя бы один ответ"
 
   admin:
     header:
