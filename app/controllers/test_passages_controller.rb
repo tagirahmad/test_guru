@@ -13,12 +13,14 @@ class TestPassagesController < ApplicationController
 
   def result; end
 
-  def update
+  def update # rubocop:disable Metrics/MethodLength
     if params[:answer_ids].nil?
       flash.now[:alert] = t('.please_answer')
-    else
-      @test_passage.accept!(params[:answer_ids])
+      render 'show'
+      return
     end
+
+    @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
       send_mail(@test_passage)
