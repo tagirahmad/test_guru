@@ -1,0 +1,18 @@
+<h1><%= t('.header') %></h1>
+
+<div class="row">
+  <div class="col col-sm-5">
+    <%= form_with url: feedbacks_path, local: true do |f| %>
+      <%= render 'shared/errors', resource: @question %>
+
+      <div class="mb-3">
+        <%= f.label :message, t('.label'), class: 'form-label' %>
+        <%= f.text_area :message, id: :message, rows: 7, class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.submit t('.submit'), :class => "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>

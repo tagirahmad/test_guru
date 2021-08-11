@@ -4,15 +4,26 @@ class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[show update result gist]
 
-  def show; end
+  def show
+    return unless @test_passage.test.questions.empty?
+
+    flash[:alert] = t('.no_questions')
+    redirect_to tests_path
+  end
 
   def result; end
 
-  def update
+  def update # rubocop:disable Metrics/MethodLength
+    if params[:answer_ids].nil?
+      flash.now[:alert] = t('.please_answer')
+      render 'show'
+      return
+    end
+
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
-      TestsMailer.completed_test(@test_passage).deliver_now
+      send_mail(@test_passage)
       redirect_to result_test_passage_path(@test_passage)
     else
       render 'show'
@@ -45,5 +56,9 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def send_mail(test_passage)
+    TestsMailer.completed_test(test_passage).deliver_now
   end
 end

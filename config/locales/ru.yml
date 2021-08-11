@@ -67,6 +67,9 @@ ru:
       test: "Тест"
       question_no: "Вопрос №"
       of: "из"
+      no_questions: "У теста пока нет вопросов"
+    update:
+      please_answer: "Выберите хотя бы один ответ"
 
   admin:
     header:
@@ -132,6 +135,16 @@ ru:
         body: "Текст вопроса"
       question:
         edit: "Изменить"
+
+  feedbacks:
+    feedback: "Отзыв"
+    index:
+      header: "Отправьте нам сообщение"
+      label: "Тест сообщения"
+      submit: "Отправить"
+    create:
+      success: "Сообщение успешно отправлено"
+      failure: "Поле не должно быть пустым"
 
   tests_mailer:
     completed_test:

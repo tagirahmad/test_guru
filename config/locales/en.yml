@@ -65,6 +65,9 @@ en:
       test: "Test"
       question_no: "Question №"
       of: "of"
+      no_questions: "Test doesn't have any questions yet"
+    update:
+      please_answer: "You have to choose at least one answer"
 
   admin:
     header:
@@ -130,6 +133,16 @@ en:
         body: "Question body"
       question:
         edit: "Edit"
+
+  feedbacks:
+    feedback: "Feedback"
+    index:
+      header: "Send us your feedback"
+      label: "Text"
+      submit: "Send"
+    create:
+      success: "Message successfully sent"
+      failure: "Field can't be blank"
 
   tests_mailer:
     completed_test:

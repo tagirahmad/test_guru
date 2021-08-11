@@ -1,6 +1,6 @@
 <% flash.each do |name, msg| %>
   <% if msg.is_a?(String) %>
-    <div class="alert alert-success" role="alert">
+    <div class="alert  <%= name == 'alert' ? 'alert-danger' : 'alert-success' %>" role="alert">
       <%= sanitize msg.to_s %>
     </div>
   <% end %>

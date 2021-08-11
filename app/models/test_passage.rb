@@ -10,8 +10,9 @@ class TestPassage < ApplicationRecord
   before_validation :set_question
 
   def accept!(answer_ids)
-    self.correct_question += 1 if correct_answer? answer_ids
+    return if answer_ids.nil?
 
+    self.correct_question += 1 if correct_answer?(answer_ids)
     save!
   end
 
