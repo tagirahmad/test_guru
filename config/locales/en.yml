@@ -10,6 +10,9 @@ en:
       question:
         create: "Create Question"
         update: "Update Question"
+      badge:
+        create: "Create Badge"
+        update: "Update Badge"
       test_passage:
         next: "Next"
     label:
@@ -17,6 +20,8 @@ en:
         title: "Title"
         level: "Level"
         category_id: "Category"
+    page:
+      back: "Back"
 
   shared:
     errors:
@@ -37,6 +42,7 @@ en:
   errors:
     cant_find_test: "Can't find this test"
     cant_find_question: "Can't find the question"
+    cant_find_badge: "Can't find this badge"
 
   services:
     gist_question_service:
@@ -133,6 +139,33 @@ en:
         body: "Question body"
       question:
         edit: "Edit"
+    badges:
+      create:
+        success: "Badge successfully created"
+      update:
+        edited: "Badge edited!"
+      index:
+        header: "Badges"
+        new_badge: "New badge"
+        name: "Name"
+        image: "Image link"
+        actions: "Actions"
+      badge:
+        image: "Link"
+        edit_button: "Edit"
+        delete_button: "Delete"
+        delete_confirmation: "Are you sure to delete?"
+      form:
+        name: "Name"
+        image: "Image link"
+
+  badges:
+    index:
+      header: "Badges"
+      name: "Name"
+      image: "Image link"
+    badge:
+      image: "Link"
 
   feedbacks:
     feedback: "Feedback"

@@ -10,6 +10,9 @@ ru:
       question:
         create: "Создать Вопрос"
         update: "Изменить Вопрос"
+      badge:
+        create: "Создать Бэйдж"
+        update: "Изменить Бэйдж"
       test_passage:
         next: "Дальше"
     label:
@@ -17,10 +20,13 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+    page:
+      back: "Назад"
 
   errors:
     cant_find_test: "Не могу найти тест"
     cant_find_question: "Не могу найти вопрос"
+    cant_find_badge: "Не могу найти бэйдж"
 
   services:
     gist_question_service:
@@ -135,6 +141,25 @@ ru:
         body: "Текст вопроса"
       question:
         edit: "Изменить"
+    badges:
+      create:
+        success: "Бэйдж успешно создан"
+      update:
+        edited: "Бэйдж изменен!"
+      index:
+        header: "Бэйджи"
+        new_badge: "Новый бэйдж"
+        name: "Название"
+        image: "Ссылка на картинку"
+        actions: "Действия"
+      badge:
+        image: "Ссылка"
+        edit_button: "Изменить"
+        delete_button: "Удалить"
+        delete_confirmation: "Вы действительно хотите удалить?"
+      form:
+        name: "Название"
+        image: "Ссылка на картику"
 
   feedbacks:
     feedback: "Отзыв"
@@ -145,6 +170,14 @@ ru:
     create:
       success: "Сообщение успешно отправлено"
       failure: "Поле не должно быть пустым"
+
+  badges:
+    index:
+      header: "Бэйджи"
+      name: "Название"
+      image: "Ссылка на картинку"
+    badge:
+      image: "Ссылка"
 
   tests_mailer:
     completed_test:
