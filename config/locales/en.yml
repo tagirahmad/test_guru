@@ -164,6 +164,10 @@ en:
       header: "Badges"
       name: "Name"
       image: "Image link"
+    my_badges:
+      header: "Badges"
+      name: "Name"
+      image: "Image link"
     badge:
       image: "Link"
 

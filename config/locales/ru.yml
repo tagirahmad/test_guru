@@ -176,6 +176,10 @@ ru:
       header: "Бэйджи"
       name: "Название"
       image: "Ссылка на картинку"
+    my_badges:
+      header: "Бэйджи"
+      name: "Название"
+      image: "Ссылка на картинку"
     badge:
       image: "Ссылка"
 
