@@ -13,7 +13,7 @@ class TestPassagesController < ApplicationController
 
   def result; end
 
-  def update # rubocop:disable Metrics/MethodLength
+  def update # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
     if params[:answer_ids].nil?
       flash.now[:alert] = t('.please_answer')
       render 'show'
@@ -24,13 +24,14 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.completed?
       send_mail(@test_passage)
+      earn_badge
       redirect_to result_test_passage_path(@test_passage)
     else
       render 'show'
     end
   end
 
-  def gist
+  def gist # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     client = Octokit::Client.new(access_token: ENV['GITHUB_ACCESS_TOKEN'])
     current_question = @test_passage.current_question
 
@@ -60,5 +61,10 @@ class TestPassagesController < ApplicationController
 
   def send_mail(test_passage)
     TestsMailer.completed_test(test_passage).deliver_now
+  end
+
+  def earn_badge
+    badge_service = BadgeService.new(@test_passage)
+    badge_service.earn_badge
   end
 end
