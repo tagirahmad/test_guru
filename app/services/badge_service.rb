@@ -7,9 +7,9 @@ class BadgeService
   end
 
   def earn_badge
-    first_attempt_badge = BadgeAchievement::TYPES.find_index(:first_attempt)
-    all_tests_from_category_badge = BadgeAchievement::TYPES.find_index(:all_tests_from_category)
-    all_tests_of_level_badge = BadgeAchievement::TYPES.find_index(:all_tests_of_level)
+    first_attempt_badge = Badge::TYPES.find_index(:first_attempt)
+    all_tests_from_category_badge = Badge::TYPES.find_index(:all_tests_from_category)
+    all_tests_of_level_badge = Badge::TYPES.find_index(:all_tests_of_level)
 
     add_badge(first_attempt_badge) if first_attempt?
     add_badge(all_tests_from_category_badge) if passing_all_tests_from_category?(@test_passage.test.category)
