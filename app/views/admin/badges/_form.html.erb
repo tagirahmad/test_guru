@@ -14,14 +14,14 @@
       </div>
 
       <div class="mb-3">
-        <%= form.label :category_id %>
-        <%= form.collection_select :category_id, Category.all, :id, :title, { prompt: true }, { class: 'form-select mt-1' } %>
-      </div>
+      <%= form.label :rule, class: 'form-label' %><br>
+      <%= form.select :rule, Badge::RULES, { prompt: true }, { class: 'form-control' } %>
+    </div>
 
-      <div class="mb-3">
-        <%= form.label :test_id %>
-        <%= form.collection_select :test_id, Test.all, :id, :title, { prompt: true }, { class: 'form-select mt-1' } %>
-      </div>
+    <div class="mb-3">
+      <%= form.label :parameter, class: 'form-label' %>
+      <%= form.text_field :parameter, id: :parameter, class: 'form-control' %>
+    </div>
 
       <div class="mb-3">
         <%= form.submit class: 'btn btn-primary' %>

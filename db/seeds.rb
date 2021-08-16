@@ -10,7 +10,7 @@ User.create!(first_name: 'Admin',
              password: 'qwerty',
              type: 'Admin')
 
-5.times do |index| # rubocop:disable Metrics/BlockLength
+5.times do |index|
   user = User.create!(first_name: "User #{index + 1}",
                       last_name: 'last name',
                       email: EMAILS[index],
@@ -21,23 +21,20 @@ User.create!(first_name: 'Admin',
   test = Test.create!(title: "Test #{CATEGORIES[index]}", level: index, category_id: category.id, author_id: user.id)
   test.users << user
 
-  Badge.create!(name: "You passed all test of #{category.title} category",
+  Badge.create!(name: "You passed all test of #{CATEGORIES[index]} category",
                 image: 'link',
-                test_id: test.id,
-                category_id: category.id,
-                achievement_type: 0)
+                rule: 'all_tests_of_category',
+                parameter: CATEGORIES[index])
 
-  Badge.create!(name: "You passed the #{test.title} from first attempt",
+  Badge.create!(name: 'You passed test from first attempt',
                 image: 'link',
-                test_id: test.id,
-                category_id: category.id,
-                achievement_type: 1)
+                rule: 'first_attempt',
+                parameter: CATEGORIES[index])
 
-  Badge.create!(name: "You passed all tests of the #{LEVELS[test.level]} level",
+  Badge.create!(name: "You passed test of the #{LEVELS[test.level]} level",
                 image: 'link',
-                test_id: test.id,
-                category_id: category.id,
-                achievement_type: 2)
+                rule: 'all_tests_of_level',
+                parameter: CATEGORIES[index])
 
   4.times do
     question = Question.create!(body: "Question body #{index + 1}", test_id: test.id)

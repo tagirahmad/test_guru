@@ -44,7 +44,7 @@ class Admin
     private
 
     def badge_params
-      params.require(:badge).permit(:name, :image, :category_id, :test_id)
+      params.require(:badge).permit(:name, :image, :rule, :parameter)
     end
 
     def set_badge

@@ -7,45 +7,52 @@ class BadgeService
   end
 
   def earn_badge
-    first_attempt_badge = Badge::TYPES.find_index(:first_attempt)
-    all_tests_from_category_badge = Badge::TYPES.find_index(:all_tests_from_category)
-    all_tests_of_level_badge = Badge::TYPES.find_index(:all_tests_of_level)
-
-    add_badge(first_attempt_badge) if first_attempt?
-    add_badge(all_tests_from_category_badge) if passing_all_tests_from_category?(@test_passage.test.category)
-    add_badge(all_tests_of_level_badge) if passing_all_tests_of_level?(@test_passage.test.level)
-  end
-
-  def first_attempt?
-    TestPassage.where(user: @test_passage.user, test: @test_passage.test).count == 1
-  end
-
-  def passing_all_tests_from_category?(category)
-    tests = Test.where(category: category).pluck(:id)
-    completed = @test_passage
-                .user
-                .test_passages
-                .where(test: tests)
-                .pluck(:test_id)
-                .uniq
-    tests.count == completed.count
-  end
-
-  def passing_all_tests_of_level?(level)
-    tests = Test.where(level: level).pluck(:id)
-    completed = @test_passage
-                .user
-                .test_passages
-                .where(test: tests)
-                .pluck(:test_id)
-                .uniq
-    tests.count == completed.count
+    Badge.all.each do |badge|
+      give_badge_to_user(badge) if send(badge.rule, badge.parameter)
+    end
   end
 
   private
 
-  def add_badge(achievement_type)
-    badge = Badge.find_by(test: @test_passage.test, achievement_type: achievement_type)
-    @user.badges << badge if badge.present?
+  def give_badge_to_user(badge)
+    @user_badge = UserBadge.new(
+      user_id: @user.id,
+      badge_id: badge.id
+    )
+
+    errors.add(:badges, :error) unless @user_badge.save
+  end
+
+  def all_tests_of_category(category_title)
+    return false if @test_passage.test.category.title != category_title
+
+    tests = Test.where(category: Category.find_by(title: category_title)).pluck(:id)
+    completed = @test_passage
+                .user
+                .test_passages
+                .where(test: tests)
+                .pluck(:test_id)
+                .uniq
+
+    @test_passage.passed? && tests.count == completed.count
+  end
+
+  def first_attempt(_args)
+    TestPassage.where(user: @test_passage.user, test: @test_passage.test).count == 1
+  end
+
+  def all_tests_of_level(level)
+    return false if level.to_i != @test_passage.test.level
+
+    tests = Test.where(level: level).pluck(:id)
+
+    completed = @test_passage
+                .user
+                .test_passages
+                .where(passed: true, test: tests)
+                .pluck(:test_id)
+                .uniq
+
+    tests.count == completed.count
   end
 end
