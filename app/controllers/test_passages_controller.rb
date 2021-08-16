@@ -24,7 +24,12 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.completed?
       send_mail(@test_passage)
-      earn_badge
+
+      if @test_passage.passed?
+        @test_passage.update(passed: true)
+        earn_badge
+      end
+
       redirect_to result_test_passage_path(@test_passage)
     else
       render 'show'
@@ -64,7 +69,6 @@ class TestPassagesController < ApplicationController
   end
 
   def earn_badge
-    badge_service = BadgeService.new(@test_passage)
-    badge_service.earn_badge
+    BadgeService.new(@test_passage).earn_badge
   end
 end

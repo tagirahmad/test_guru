@@ -21,7 +21,7 @@ User.create!(first_name: 'Admin',
   test = Test.create!(title: "Test #{CATEGORIES[index]}", level: index, category_id: category.id, author_id: user.id)
   test.users << user
 
-  Badge.create!(name: "You passed all test of #{CATEGORIES[index]} category",
+  Badge.create!(name: "You passed all tests of #{CATEGORIES[index]} category",
                 image: 'link',
                 rule: 'all_tests_of_category',
                 parameter: CATEGORIES[index])
@@ -29,12 +29,12 @@ User.create!(first_name: 'Admin',
   Badge.create!(name: 'You passed test from first attempt',
                 image: 'link',
                 rule: 'first_attempt',
-                parameter: CATEGORIES[index])
+                parameter: 'first_attempt')
 
   Badge.create!(name: "You passed test of the #{LEVELS[test.level]} level",
                 image: 'link',
                 rule: 'all_tests_of_level',
-                parameter: CATEGORIES[index])
+                parameter: test.level)
 
   4.times do
     question = Question.create!(body: "Question body #{index + 1}", test_id: test.id)
