@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="form-group col-sm-12 col-md-8 col-lg-4">
+    <%= form_with(model: [:admin, @badge], local: true) do |form| %>
+      <%= render 'shared/errors', resource: @badge %>
+
+      <div class="mb-3">
+        <%= form.label :name, t('.name'), class: 'form-label' %><br>
+        <%= form.text_field :name, id: :badge_name, class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :image, t('.image'), class: 'form-label' %>
+        <%= form.text_field :image, id: :badge_image, class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+      <%= form.label :rule, class: 'form-label' %><br>
+      <%= form.select :rule, Badge::RULES, { prompt: true }, { class: 'form-control' } %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :parameter, class: 'form-label' %>
+      <%= form.text_field :parameter, id: :parameter, class: 'form-control' %>
+    </div>
+
+      <div class="mb-3">
+        <%= form.submit class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
