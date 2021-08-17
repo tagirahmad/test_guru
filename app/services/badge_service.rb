@@ -24,8 +24,7 @@ class BadgeService
   end
 
   def first_attempt(_args)
-    passages_count = TestPassage.where(user: @test_passage.user, test: @test_passage.test, passed: true).count
-    passages_count == 1
+    TestPassage.where(user: @test_passage.user, test: @test_passage.test).count == 1
   end
 
   def all_tests_of_level(level)
