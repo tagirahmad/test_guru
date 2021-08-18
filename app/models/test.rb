@@ -11,6 +11,7 @@ class Test < ApplicationRecord
 
   validates :title, presence: true, uniqueness: { scope: [:level] }
   validates :level, presence: true, numericality: { greater_than_or_equal_to: 0, only_integer: true }, allow_nil: false
+  validates :time, numericality: { only_integer: true, greater_than: 0 }
 
   scope :simple, -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }
@@ -22,5 +23,9 @@ class Test < ApplicationRecord
     sorted_title_for_category(category_title)
       .order(title: :desc)
       .pluck(:title)
+  end
+
+  def time?
+    time.positive?
   end
 end

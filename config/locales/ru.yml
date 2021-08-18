@@ -20,6 +20,7 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+        time: "Время, в сек"
     page:
       back: "Назад"
 
@@ -74,6 +75,8 @@ ru:
       question_no: "Вопрос №"
       of: "из"
       no_questions: "У теста пока нет вопросов"
+      remaining_time: "Оставшееся время"
+      seconds_short: "с"
     update:
       please_answer: "Выберите хотя бы один ответ"
 
@@ -100,6 +103,7 @@ ru:
         confirm: "Вы уверены?"
         level: "Сложность"
         questions_count: "Количество вопросов"
+        time: "Время, в сек"
       edit:
         edit: "Изменить"
         back: "Назад"

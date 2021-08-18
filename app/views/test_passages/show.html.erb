@@ -6,7 +6,15 @@
 
     <p><%= t('.question_no') %> <%= @test_passage.question_position %> <%= t('.of') %> <%= @test_passage.test_questions_count %></p>
 
-    <div class="progress mb-3">
+    <% if @test_passage.test.time? %>
+      <%= content_tag :div,
+                      class: 'timer',
+                      data: { remaining_time: @test_passage.remaining_time } do %>
+        <%= content_tag :span, "#{t('.remaining_time')}: #{@test_passage.remaining_time} #{t('.seconds_short')}", class: 'timer_content' %>
+      <% end %>
+    <% end %>
+
+    <div class="progress mb-3 mt-1">
       <%= content_tag :div, '',
                       class: 'progress-bar',
                       id: 'test-progress',
@@ -15,7 +23,10 @@
                       role: "progressbar" %>
     </div>
 
-    <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+    <%= form_with url: test_passage_path(@test_passage), 
+                  id: :test_passage, 
+                  local: true, 
+                  method: :put do |form| %>
       <%= form.collection_check_boxes :answer_ids,
                                       @test_passage.current_question.answers,
                                       :id, :body,
