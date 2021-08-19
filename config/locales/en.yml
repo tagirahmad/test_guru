@@ -20,6 +20,7 @@ en:
         title: "Title"
         level: "Level"
         category_id: "Category"
+        time: "Time, in sec"
     page:
       back: "Back"
 
@@ -72,6 +73,8 @@ en:
       question_no: "Question №"
       of: "of"
       no_questions: "Test doesn't have any questions yet"
+      remaining_time: "Remaining time"
+      seconds_short: "s"
     update:
       please_answer: "You have to choose at least one answer"
 
@@ -98,6 +101,7 @@ en:
         confirm: "Are you sure?"
         level: "Level"
         questions_count: "Questions count"
+        time: "Time, in sec"
       edit:
         edit: "Edit"
         back: "Back"

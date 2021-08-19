@@ -24,6 +24,10 @@ class TestPassage < ApplicationRecord
     test.questions.find_index(current_question) + 1
   end
 
+  def remaining_time
+    (test.time - (Time.now - created_at).seconds).to_i
+  end
+
   def result_score
     (self.correct_question.to_f / test_questions_count) * 100
   end

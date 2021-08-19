@@ -5,6 +5,8 @@ class TestPassagesController < ApplicationController
   before_action :set_test_passage, only: %i[show update result gist]
 
   def show
+    redirect_if_time_expired
+
     return unless @test_passage.test.questions.empty?
 
     flash[:alert] = t('.no_questions')
@@ -23,6 +25,7 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
+      redirect_if_time_expired
       send_mail(@test_passage)
 
       if @test_passage.passed?
@@ -70,5 +73,11 @@ class TestPassagesController < ApplicationController
 
   def earn_badge
     BadgeService.new(@test_passage).earn_badge
+  end
+
+  def redirect_if_time_expired
+    return unless @test_passage.remaining_time <= 0
+
+    redirect_to(result_test_passage_path(@test_passage), alert: 'Time is over')
   end
 end

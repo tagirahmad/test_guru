@@ -13,6 +13,7 @@ import "utilities/sorting.js"
 import "utilities/passwords_comparing.js"
 import "utilities/form_inline.js"
 import "utilities/test_progress.js"
+import "utilities/test_timer.js"
 
 Rails.start()
 Turbolinks.start()
